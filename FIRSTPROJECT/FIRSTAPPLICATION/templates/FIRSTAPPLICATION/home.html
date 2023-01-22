@@ -1,4 +1,35 @@
 {% load static %}
 
+
+<html>
+<head>
+    <title>My Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
 <h1>Hi! Welcome to the innovation with python training.</h1>
 <img src="{% static 'images/image.jpg' %}" alt="image">
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Contact</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for name, id, contact, address in data %}
+        <tr>
+            <td>{{ name.name }}</td>
+            <td>{{ id.id_number }}</td>
+            <td>{{ contact.email }} {{ contact.phone_number }}</td>
+            <td>{{ address.address_line1 }} {{ address.address_line2 }} {{ address.city }} {{ address.state }} {{ address.zip_code }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
